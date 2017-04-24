@@ -1,0 +1,271 @@
+@charset "UTF-8";
+/*******************************************************************************
+* phoenix.css :: base css files for phoenix template
+* ------------------------------------------------------------------------------
+* base set of stylesheet rules needed to form the header, body, and any base
+* styles; based on bootstrap 3.3.6+
+*******************************************************************************/
+
+/* import bootstrap CSS documents */
+@import "bootstrap.min.css";
+@import "bootstrap-theme.min.css";
+
+/* import phoenix body styles */
+@import "phoenix.font.css";
+@import "font-awesome.min.css";
+
+/*** global declarations ******************************************************/
+html {
+    position: relative;
+    width: 100%;
+}
+
+body {
+    font-family: "Open Sans", "Helvetica Neue", Tahoma, Helvetica, Arial, sans-serif;
+    background-color: #f0f0f0;
+    font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #3a7abf;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+}
+
+.text-shadow {
+    -webkit-box-shadow: 0px 0px 5px 0px #222;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    0px 0px 5px 0px #222;  /* Firefox 3.5 - 3.6 */
+    box-shadow:         0px 0px 5px 0px #222;
+}
+
+/*** navbar left **************************************************************/
+.navbar-fixed-left {
+    background-color: #2d404f;
+    color: #a6b2c2;
+    width: 225px;
+    position: fixed;
+    border-radius: 0;
+    height: 100%;
+    z-index: 10000;
+}
+
+.navbar-fixed-left a {
+    color: #a6b2c2;
+    font-weight: 600;
+}
+
+.navbar-fixed-left .navbar-nav > li {
+    float: none;  /* Cancel default li float: left */
+    width: 225px;
+}
+
+.navbar-fixed-left + .container {
+    padding-left: 225px;
+}
+
+/* On using dropdown menu (To right shift popuped) */
+.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+    margin-top: -50px;
+    margin-left: 225px;
+}
+
+#navbar-user {
+    background-image: url("../images/nav/nav-top-bg.png");
+    background-repeat: no-repeat;
+    width: 225px !important;
+    height: 154px !important;
+    margin-left: -1px;
+    padding: 0;
+    border: 0px;
+    border-radius: 0;
+}
+
+#navbar-left-avatar {
+    padding-left: 72px;
+    padding-right: auto;
+    padding-top: 10px;
+}
+
+.navbar-avatar, .navbar-left-avatar {
+    border: 3px solid #ffffff;
+}
+
+.navbar-left-avatar {
+    width: 75px;
+    height: 75px;
+}
+
+#navbar-left-user {
+    padding-top: 10px;
+    padding-left: 15px;
+    float: left;
+}
+
+.navbar-left-username, .navbar-left-role {
+    color: #ffffff;
+}
+
+.navbar-left-username {
+    font-size: 18px;
+    font-weight: 500;
+    text-shadow: 2px 2px #222;
+}
+
+.navbar-left-role {
+    margin-top: 2px;
+    font-size: 13px;
+}
+
+#navbar-left-button {
+    padding-top: 15px;
+    padding-right: 20px;
+    float: right;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#navbar-left-button > a.btn {
+    color: #ffffff;
+    background-color: #253440;
+    border: 1px solid #14202c;
+}
+
+.navbar-nav {
+    font-size: 12px;
+}
+
+ul.nav .fa {
+    width: 20px;
+    margin-right: 10px;
+}
+
+ul.nav .caret {
+    margin-left: 75px;
+}
+
+.navbar-nav li {
+    border-radius: 0;
+    margin-left: -2px;
+    padding-left: 2px;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li.dropdown a:hover,
+.navbar-nav li.dropdown a:focus,
+.navbar-nav li a:focus {
+    background-color: #283846;
+}
+
+.navbar-nav li a:visited {
+    background-color: none;
+}
+
+/*** header styles ************************************************************/
+div#phoenix-header-content,
+section#header,
+section#subheader {
+    margin: 0;
+    margin-left: 225px;
+}
+
+header#phoenix-header.navbar {
+    background-color: #3a7abf;
+    color: #f0f0f0;
+    height: 60px;
+}
+
+header#phoenix-header.navbar a {
+    color: #f0f0f0;
+}
+
+a#navbar-collapse {
+    float: left;
+    margin-top: 14px;
+    margin-left: -5px;
+}
+
+#phoenix-header a:hover {
+    background-color: #306195;
+}
+
+header#phoenix-header.navbar a.navbar-brand {
+    height: 60px;
+    padding: 20px;
+    margin: 0px;
+}
+
+#phoenix-header-nav {
+    float: right;
+    text-align: right;
+}
+
+a#login {
+    margin: 0;
+    padding-top: 12px;
+    height: 60px;
+}
+
+a#login img.img-circle {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+}
+
+.navbar-btn .badge {
+    font-family: "Open Sans", "Helvetica Neue", Tahoma, Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    background-color: #fb6b5b;
+    margin: 0;
+    margin-top: -10px;
+    margin-left: -8px;
+}
+
+#navbar-messages .badge {
+    background-color: #faad5a;
+    border-radius: 6px;
+}
+
+/*** subheader styles *********************************************************/
+div#subheader {
+    background-color: #ffffff;
+    border-top: 1px solid #2f4050;
+    border-bottom: 1px solid #d4d4d4;
+    margin-top: 60px;
+    padding: 20px;
+    padding-left: 20px;
+    height: 95px;
+}
+
+div#subheader div.row {
+    margin: 0;
+}
+
+.title {
+    margin-top: -5px;
+}
+
+div#subheader .breadcrumb {
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.breadcrumb a {
+    color: #a4a4a4;
+}
+
+.breadcrumb a:hover {
+    text-decoration: none;
+    color: #808080;
+}
+
+.breadcrumb .breadcrumb-last a {
+    font-weight: bold;
+    color: #3a7abf;
+}
+
+/******************************************************************************/
+/******************************************************************************/
