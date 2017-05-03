@@ -1,11 +1,11 @@
-wsserver:	worldSeeD.cpp
-	        g++ -o wsserver worldSeeD.cpp $(LINK_OPTS) $(OPTS)
+wsserver:	wsserver.cpp
+	        g++ -o wsserver wsserver.cpp $(LINK_OPTS) $(OPTS)
 
 wsclient:	wsclient.cpp
 	        g++ -o wsclient wsclient.cpp $(LINK_OPTS) $(OPTS)
 
 all:	    
-	        g++ -o wsserver worldSeeD.cpp $(LINK_OPTS) $(OPTS)
+	        g++ -o wsserver wsserver.cpp $(LINK_OPTS) $(OPTS)
 	        g++ -o wsclient wsclient.cpp $(LINK_OPTS) $(OPTS)
 
 clean:	    
