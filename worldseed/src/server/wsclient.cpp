@@ -10,7 +10,7 @@ int main( int argc, char **argv ) {
     std::cout << "// W o r l d S e e D  Client Test /////////////////" << std::endl;
     std::cout << "///////////////////////////////////////////////////" << std::endl;
     std::cout << "<< Connecting to the worldSeeD Server..." << std::endl;
-    socket.connect( "tcp://localhost:5555" );
+    socket.connect( "tcp://localhost:8888" );
 
     // do 10 requests, waiting 1 second per request
     for( int numRequest = 0; numRequest < 10; numRequest++ ) {

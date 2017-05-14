@@ -1,3 +1,6 @@
+wsserverc:	wsclient.cpp
+	        gcc -o wsserver wsserver.c $(LINK_OPTS) $(OPTS)
+
 wsserver:	wsserver.cpp
 	        g++ -o wsserver wsserver.cpp $(LINK_OPTS) $(OPTS)
 
