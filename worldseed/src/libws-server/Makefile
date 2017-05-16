@@ -1,18 +1,16 @@
-wsserverc:	wsclient.cpp
-	        gcc -o wsserver wsserver.c $(LINK_OPTS) $(OPTS)
+wsserver:	wsserver.c
+	        $(CXX) -o wsserver wsserver.c $(LINK_OPTS)
 
-wsserver:	wsserver.cpp
-	        g++ -o wsserver wsserver.cpp $(LINK_OPTS) $(OPTS)
-
-wsclient:	wsclient.cpp
-	        g++ -o wsclient wsclient.cpp $(LINK_OPTS) $(OPTS)
+threads:	threads.c
+	        $(CXX) -o threads threads.c $(LINK_OPTS)
 
 all:	    
-	        g++ -o wsserver wsserver.cpp $(LINK_OPTS) $(OPTS)
-	        g++ -o wsclient wsclient.cpp $(LINK_OPTS) $(OPTS)
+	        $(CXX) -o threads threads.c $(LINK_OPTS)
+	        $(CXX) -o wsserver wsserver.c $(LINK_OPTS)
 
 clean:	    
-	        rm -rf wsserver wsclient
+	        rm -rf threads wsserver
 
-LINK_OPTS = -lzmq
-OPTS = -Wl,-rpath=/usr/local/lib
+CXX = gcc
+LINK_OPTS = -lpthread
+#OPTS = -Wl,-rpath=/usr/local/lib
