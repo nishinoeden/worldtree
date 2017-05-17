@@ -1,16 +1,12 @@
 wsserver:	wsserver.c
-	        $(CXX) -o wsserver wsserver.c $(LINK_OPTS)
-
-threads:	threads.c
-	        $(CXX) -o threads threads.c $(LINK_OPTS)
+	        $(CXX) -o wsserver wsserver.c $(LINK_OPTS) $(OPTS)
 
 all:	    
-	        $(CXX) -o threads threads.c $(LINK_OPTS)
-	        $(CXX) -o wsserver wsserver.c $(LINK_OPTS)
+	        $(CXX) -o wsserver wsserver.c $(LINK_OPTS) $(OPTS)
 
 clean:	    
-	        rm -rf threads wsserver
+	        rm -rf wsserver
 
 CXX = gcc
-LINK_OPTS = -lpthread
-#OPTS = -Wl,-rpath=/usr/local/lib
+LINK_OPTS = -lpthread -lzmq
+OPTS = -Wl,-rpath=/usr/local/lib
