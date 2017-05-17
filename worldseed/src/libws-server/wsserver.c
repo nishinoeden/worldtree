@@ -57,12 +57,17 @@ void *ws_wtd_init( void *wtd ) {
         printf( ">> received [%d:%d]: %s\r\n", numRequest, retval, buffer );
 
         // do some stuff
-        sleep( 1 );
+        usleep( 50000 );
 
         // send response back to client
         zmq_send( worker->device.socket, "WORLDSEED", 9, 0 );
         numRequest++;
-    }}} while( 1 );
+    }}} while( numRequest < 128 );
+
+    // clean up all messes
+    zmq_close( worker->device.socket );
+    zmq_ctx_destroy( worker->device.context );
+    pthread_exit( NULL );
 }
 
 void* ws_print_header() {
