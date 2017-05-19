@@ -1,8 +1,10 @@
 #include "wthread.h"
+#include "wsbasics.h"
 
+#include <sys/ioctl.h>
 #include <stdio.h>
 #include <stdlib.h>
-//#include <stdbool.h>
+#include <stdbool.h>
 #include <string.h>
 #include <pthread.h>
 #include <assert.h>
@@ -145,12 +147,27 @@ void *ws_wtd_listen( worker_t *worker ) {
  * @return void* null
  */
 void* ws_print_header() {
-    int  major, minor, patch;
+    struct winsize w;
+    ioctl( 0, TIOCGWINSZ, &w ); /* get window size (width) */
+
+    int    hSize = w.ws_col / 2, i;
+    int    major, minor, patch;
+    char   header[hSize];
+
+    // load header with # characters
+    for( i = 0; i < hSize; i++ ) {
+        if( i == hSize - 1 ) {
+            header[i] = '\0';
+            break;
+        }
+
+        header[i] = '#';
+    }
 
     zmq_version( &major, &minor, &patch );
-    printf( "///////////////////////////////////////////////////\r\n" );
-    printf( "// W o r l d S e e D  Thread Test /////////////////\r\n" );
-    printf( "///////////////////////////////////////////////////\r\n" );
+    printf( B_BLU "%s\r\n" RESET, header );
+    printf( B_BLU "### " B_WHT "[" CYN " W o r l d S e e D " B_WHT "] " GRN "Thread Test\r\n" RESET );
+    printf( B_BLU "%s\r\n" RESET, header );
     printf( "*** Running ØMQ %d.%d.%d\r\n", major, minor, patch );
 
     return NULL;
