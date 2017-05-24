@@ -34,11 +34,11 @@
  * a *** on any other level
  *
  * @function printmsg
- * @var int level The log level of the message
- * @var const char* string The formatted string for output
- * @var va_args args The arguments for the formatted string
+ * @param int level The log level of the message
+ * @param const char* string The formatted string for output
+ * @param va_args args The arguments for the formatted string
  */
-void *printmsg( int level, const char *string, va_list args );
+void printmsg( int level, const char *string, va_list args );
 
 /**
  * Convenience method for message( LOG_ERR, $message ).  The optional $quit flag
@@ -48,7 +48,7 @@ void *printmsg( int level, const char *string, va_list args );
  * @param const char* string The formatted string for output
  * @param mixed ... The arguments for the string
  */
-void *errormsg( bool quit, const char *string, ... );
+void errormsg( bool quit, const char *string, ... );
 
 /**
  * Convenience method for message( LOG_WARNING, string, ... ).  Should be used
@@ -57,7 +57,7 @@ void *errormsg( bool quit, const char *string, ... );
  * @param const char* string The message to be displayed
  * @param mixed ... The arguments for the string
  */
-void *warningmsg( const char *string, ... );
+void warningmsg( const char *string, ... );
 
 /**
  * Convenience method for message( LOG_NOTICE, string, ... ).  Should be used
@@ -66,4 +66,4 @@ void *warningmsg( const char *string, ... );
  * @param const char* string The message to be displayed
  * @param mixed ... The arguments for the string
  */
-void *noticemsg( const char *string, ... );
+void noticemsg( const char *string, ... );
