@@ -4,6 +4,7 @@
 #include <sys/ioctl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <stdbool.h>
 #include <string.h>
 #include <pthread.h>
@@ -148,7 +149,7 @@ void *ws_wtd_listen( worker_t *worker ) {
  */
 void* ws_print_header() {
     struct winsize w;
-    ioctl( 0, TIOCGWINSZ, &w ); /* get window size (width) */
+    ioctl( STDOUT_FILENO, TIOCGWINSZ, &w ); /* get window size (width) */
 
     int    hSize = w.ws_col / 2, i;
     int    major, minor, patch;
@@ -168,7 +169,9 @@ void* ws_print_header() {
     printf( B_BLU "%s\r\n" RESET, header );
     printf( B_BLU "### " B_WHT "[" CYN " W o r l d S e e D " B_WHT "] " GRN "Thread Test\r\n" RESET );
     printf( B_BLU "%s\r\n" RESET, header );
-    printf( "*** Running ØMQ %d.%d.%d\r\n", major, minor, patch );
+    noticemsg( "Running ØMQ " B_RED "%d.%d.%d" RESET, major, minor, patch );
+    warningmsg( "Running ØMQ " B_RED "%d.%d.%d" RESET, major, minor, patch );
+    errormsg( true, "Running ØMQ " B_RED "%d.%d.%d" RESET, major, minor, patch );
 
     return NULL;
 }

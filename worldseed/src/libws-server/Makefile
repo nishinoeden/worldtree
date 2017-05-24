@@ -1,8 +1,8 @@
-wsserver:	wsserver.c wthread.c
-	        $(CXX) -o wsserver wsserver.c wthread.c $(LINK_OPTS) $(OPTS)
+wsserver:	wsserver.c wthread.c wsbasics.c
+	        $(CXX) -o wsserver wsserver.c wthread.c wsbasics.c $(LINK_OPTS) $(OPTS)
 
 all:	    
-	        $(CXX) -o wsserver wsserver.c wthread.c $(LINK_OPTS) $(OPTS)
+	        $(CXX) -o wsserver wsserver.c wthread.c wsbasics.c $(LINK_OPTS) $(OPTS)
 
 clean:	    
 	        rm -rf wsserver

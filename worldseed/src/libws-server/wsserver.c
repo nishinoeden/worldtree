@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "wsbasics.h"
 #include "wthread.h"
 
 /**
@@ -14,7 +16,7 @@ int main( int argc, char **argv ) {
     ws_wtd_start( worker );
 
     /* print final result once threads run to completion */
-    printf( "*** Threads completed execution.\r\n" );
+    noticemsg( "Threads completed execution." );
     return 0;
 }
 
