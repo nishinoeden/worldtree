@@ -1,0 +1,25 @@
+# Object files
+*.o
+*.so
+*.ko
+
+# Executables
+*.exe
+*.out
+*.app
+worldseed/src/server/wsclient
+worldseed/src/libws-server/wsserver
+worldseed/src/libws-client/wsclient
+
+# Directories
+tmp/
+#misc/
+
+# Temporary files
+*.swp
+*.bak
+*.old
+.test*
+
+# Editor backups
+*~
