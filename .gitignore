@@ -7,9 +7,10 @@
 *.exe
 *.out
 *.app
-worldseed/src/server/wsclient
-worldseed/src/libws-server/wsserver
-worldseed/src/libws-client/wsclient
+#worldseed/src/libws-server/wsserver
+#worldseed/src/libws-client/wsclient
+wsclient
+wsserver
 
 # Directories
 tmp/
