@@ -14,7 +14,10 @@ wsserver
 
 # Directories
 tmp/
-#misc/
+*.tmp/
+*.misc/
+.metadata/
+RemoteSystemsTempFiles/
 
 # Temporary files
 *.swp
