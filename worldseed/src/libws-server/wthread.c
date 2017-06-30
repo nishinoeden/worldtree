@@ -43,7 +43,7 @@ struct worker {
     device_t   device;
     worker_t   *next;
     worker_t   *prev;
-    int        id;
+    long       id;
 };
 
 /**
@@ -56,7 +56,6 @@ struct worker {
 worker_t *ws_wtd_new() {
     worker_t *wthread = malloc( sizeof(worker_t) );
     int       rc, tLimit;
-    long      tid;
     
     wthread->next = NULL;
     wthread->prev = NULL;
@@ -99,6 +98,7 @@ void *ws_wtd_start( worker_t *worker ) {
 void *ws_wtd_exec( void *wtd ) {
     // create a new context and socket
     worker_t *worker = (worker_t *)wtd;
+    worker->id = pthread_self();
     worker->device.context = zmq_ctx_new();
     worker->device.socket = zmq_socket( worker->device.context, ZMQ_REP );
     int      rc = zmq_bind( worker->device.socket, "tcp://*:5555" );
@@ -129,7 +129,7 @@ void *ws_wtd_listen( worker_t *worker ) {
 
         // waits on socket to receive a connection
         retval = zmq_recv( worker->device.socket, buffer, 255, 0 );
-        printf( ">> received [%d:%d]: %s\r\n", numRequest, retval, buffer );
+        noticemsg( ">> received (thread %d) [%d:%d]: %s", worker->id, numRequest, retval, buffer );
 
         // do some stuff
         usleep( 50000 );
@@ -169,9 +169,10 @@ void* ws_print_header() {
     printf( B_BLU "%s\r\n" RESET, header );
     printf( B_BLU "### " B_WHT "[" CYN " W o r l d S e e D " B_WHT "] " GRN "Thread Test\r\n" RESET );
     printf( B_BLU "%s\r\n" RESET, header );
-    noticemsg( "Running ØMQ " B_RED "%d.%d.%d" RESET, major, minor, patch );
-    warningmsg( "Running ØMQ " B_RED "%d.%d.%d" RESET, major, minor, patch );
-    errormsg( true, "Running ØMQ " B_RED "%d.%d.%d" RESET, major, minor, patch );
+    message( "Running ØMQ " B_RED "%d.%d.%d" RESET, major, minor, patch );
+    //noticemsg( "Running ØMQ " B_RED "%d.%d.%d" RESET, major, minor, patch );
+    //warningmsg( "Running ØMQ " B_RED "%d.%d.%d" RESET, major, minor, patch );
+    //errormsg( true, "Running ØMQ " B_RED "%d.%d.%d" RESET, major, minor, patch );
 
     return NULL;
 }

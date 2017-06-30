@@ -1,3 +1,4 @@
+#include <signal.h>
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -34,11 +35,13 @@ void printmsg( int level, const char *string, va_list args ) {
         if( level == LOG_WARNING ) {
             strcpy( prefix, "/!\\" );
             fprintf( stdout, B_WHT "[" B_GRN "%s" B_WHT "] " B_YEL "%s " RESET, buffer, prefix );
-        } else {
+        } else if( level == LOG_NOTICE ) {
             strcpy( prefix, "***" );
             fprintf( stdout, B_WHT "[" B_GRN "%s" B_WHT "] " B_BLU "%s " RESET, buffer, prefix );
+        } else {
+            fprintf( stdout, B_WHT "[" B_GRN "%s" B_WHT "] " RESET, buffer );
         }
-
+            
         vfprintf( stdout, string, args );
         fprintf( stdout, "\r\n" );
     }
@@ -91,5 +94,13 @@ void noticemsg( const char *string, ... ) {
     
     va_start( args, string ); /* format the string w/ args */
     printmsg( LOG_NOTICE, string, args );
+    va_end( args );
+}
+
+void message( const char *string, ... ) {
+    va_list args;
+    
+    va_start( args, string ); /* format the string w/ args */
+    printmsg( 0, string, args );
     va_end( args );
 }

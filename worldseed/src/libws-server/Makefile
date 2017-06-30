@@ -15,11 +15,11 @@ CFLAGS =
 wsserver:	$(OBJS)
 	        $(CXX) -o $@ $^ $(CFLAGS) $(LIBS) $(OPTS)
 
-all:	    
-	        $(CXX) -o wsserver wsserver.c wthread.c wsbasics.c $(LIBS) $(OPTS)
-
 clean:	    
 	        rm -rf wsserver
 
 clear:
 	        rm -rf *.o
+
+#all:	    
+#	        $(CXX) -o wsserver wsserver.c wthread.c wsbasics.c $(LIBS) $(OPTS)
