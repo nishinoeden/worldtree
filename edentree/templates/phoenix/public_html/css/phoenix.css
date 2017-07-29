@@ -14,7 +14,10 @@
 @import "phoenix.font.css";
 @import "font-awesome.min.css";
 
+/******************************************************************************/
 /*** global declarations ******************************************************/
+/******************************************************************************/
+
 html {
     position: relative;
     width: 100%;
@@ -39,7 +42,10 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow:         0px 0px 5px 0px #222;
 }
 
+/******************************************************************************/
 /*** navbar left **************************************************************/
+/******************************************************************************/
+
 .navbar-fixed-left {
     background-color: #2d404f;
     color: #a6b2c2;
@@ -57,7 +63,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-fixed-left .navbar-nav > li {
     float: none;  /* Cancel default li float: left */
-    width: 225px;
+    width: 220px; /* Make width 5px less (originally 225px) */
+	/* This is for the second level collapsible menu item borders & bg */
 }
 
 .navbar-fixed-left + .container {
@@ -69,6 +76,9 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: -50px;
     margin-left: 225px;
 }
+
+/******************************************************************************/
+/******************************************************************************/
 
 #navbar-user {
     background-image: url("../images/nav/nav-top-bg.png");
@@ -132,6 +142,9 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid #14202c;
 }
 
+/******************************************************************************/
+/******************************************************************************/
+
 .navbar-nav {
     font-size: 12px;
 }
@@ -151,18 +164,48 @@ ul.nav .caret {
     padding-left: 2px;
 }
 
-.navbar-nav li a:hover,
-.navbar-nav li.dropdown a:hover,
-.navbar-nav li.dropdown a:focus,
-.navbar-nav li a:focus {
-    background-color: #283846;
+/*** Color Scheme
+# P: #2d404f
+# S: #283846
+# T: #3a7abf
+# O: #21282e
+/*** PSTO ***/
+
+.navbar-nav li a:hover, .navbar-nav li a:focus {
+	background-color: #283846 !important;
+	/*margin-left: -5px;*/
 }
 
-.navbar-nav li a:visited {
-    background-color: none;
+.navbar-nav li.collapsible a:focus { background-color: #21282e !important; }
+.navbar-nav li.collapsible a:hover { background-color: #283846 !important; }
+
+.navbar-nav li a.collapsed:focus { background-color: #2d404f !important; }
+.navbar-nav li a.collapsed:hover { background-color: #283846 !important; }
+
+
+.navbar-nav li.collapsible ul.nav-second-level a:hover { background-color: #3a7abf !important; }
+.navbar-nav li.collapsible ul.nav-second-level a:focus { background-color: #3a7abf !important; }
+
+.navbar-nav li a:visited { background-color: none; }
+
+ul.nav-first-level {
+	border-left: 5px solid #283846;
 }
 
+ul.navbar-nav li.collapsible a:not(.collapsed) {
+	margin-left: -5px;
+	border-left: 5px solid #3a7abf;
+	background-color: #21282e;
+}
+
+ul.nav-second-level li a {
+	padding-left: 44px;
+}
+
+/******************************************************************************/
 /*** header styles ************************************************************/
+/******************************************************************************/
+
 div#phoenix-header-content,
 section#header,
 section#subheader {
@@ -227,7 +270,10 @@ a#login img.img-circle {
     border-radius: 6px;
 }
 
+/******************************************************************************/
 /*** subheader styles *********************************************************/
+/******************************************************************************/
+
 div#subheader {
     background-color: #ffffff;
     border-top: 1px solid #2f4050;
