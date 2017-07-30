@@ -24,7 +24,7 @@ html {
 }
 
 body {
-    font-family: "Open Sans", "Helvetica Neue", Tahoma, Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", "Gill Sans", "Helvetica Neue", Tahoma, Helvetica, Arial, sans-serif;
     background-color: #f0f0f0;
     font-size: 14px;
 }
@@ -173,24 +173,24 @@ ul.nav .caret {
 
 .navbar-nav li a:hover, .navbar-nav li a:focus {
 	background-color: #283846 !important;
-	/*margin-left: -5px;*/
+	outline: none;
 }
 
 .navbar-nav li.collapsible a:focus { background-color: #21282e !important; }
-.navbar-nav li.collapsible a:hover { background-color: #283846 !important; }
-
 .navbar-nav li a.collapsed:focus { background-color: #2d404f !important; }
+
+.navbar-nav li.collapsible a:hover { background-color: #283846 !important; }
 .navbar-nav li a.collapsed:hover { background-color: #283846 !important; }
 
-
-.navbar-nav li.collapsible ul.nav-second-level a:hover { background-color: #3a7abf !important; }
-.navbar-nav li.collapsible ul.nav-second-level a:focus { background-color: #3a7abf !important; }
+.navbar-nav li.collapsible ul.nav-second-level a:hover,
+.navbar-nav li.collapsible ul.nav-second-level a:focus {
+	background-color: #3a7abf !important;
+	color: #FFF;
+}
 
 .navbar-nav li a:visited { background-color: none; }
 
-ul.nav-first-level {
-	border-left: 5px solid #283846;
-}
+ul.nav-first-level { border-left: 5px solid #283846; }
 
 ul.navbar-nav li.collapsible a:not(.collapsed) {
 	margin-left: -5px;
@@ -206,9 +206,7 @@ ul.nav-second-level li a {
 /*** header styles ************************************************************/
 /******************************************************************************/
 
-div#phoenix-header-content,
-section#header,
-section#subheader {
+div#phoenix-header-content, section#header, section#subheader {
     margin: 0;
     margin-left: 225px;
 }
@@ -223,7 +221,7 @@ header#phoenix-header.navbar a {
     color: #f0f0f0;
 }
 
-a#navbar-collapse {
+section#header a#navbar-collapse {
     float: left;
     margin-top: 14px;
     margin-left: -5px;
@@ -237,6 +235,11 @@ header#phoenix-header.navbar a.navbar-brand {
     height: 60px;
     padding: 20px;
     margin: 0px;
+}
+
+#phoenix-header-content {
+	float: left;
+	text-align: left;
 }
 
 #phoenix-header-nav {
